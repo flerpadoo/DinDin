@@ -5,9 +5,10 @@ import re
 
 username = 'sendalertfrom@email.com'
 password = 'SuperSecretPassword10'
+MAC = '88:19:08:84:c4:a7'
 
 def watchNetworkForHost(macAddress):
-    cmd = 'tcpdump -i en0 ether host 88:19:08:84:c4:a7 -c 1'
+    cmd = 'tcpdump -i en0 ether host %s -c 1' % MAC
     process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
     return True
